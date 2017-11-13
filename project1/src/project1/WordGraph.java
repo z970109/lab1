@@ -1,12 +1,8 @@
 package project1;
 
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.*;
 
 /**
@@ -27,7 +23,7 @@ public class WordGraph {
     /**
      * the graph
      */
-    public static int[][] graph=new int [30][30];
+    private int[][] graph;
 
     /**
      * Constructor to load data from filename
@@ -47,14 +43,6 @@ public class WordGraph {
      * @return the bridge word
      */
     public String queryBridgeWords(String word1, String word2) {
-    	for (int i=0;i<graph.length;i++)
-    	{
-    		for (int j=0;j<graph.length;j++)
-    			System.out.print(graph[i][j]+" ");
-    		System.out.print("\n");
-    	}
-    	for (int j=0;j<words.size();j++)	
-    		System.out.print(words.get(j)+" ");
         String result = "";
         boolean containsWord1 = words.contains(word1);
         boolean containsWord2 = words.contains(word2);
@@ -308,25 +296,8 @@ public class WordGraph {
         System.out.println("2. Caculate Shortest Path between two words");
         System.out.println("3. Randomly Walk");
         System.out.println("4. Quit");
-        System.out.println("5. Show the graph");
     }
-    
-    public static void write(String file, String conent) {
-		BufferedWriter out = null;
-		try {
-		out = new BufferedWriter(new OutputStreamWriter(
-		new FileOutputStream(file, true)));
-		out.write(conent);
-		} catch (Exception e) {
-		e.printStackTrace();
-		} finally {
-		try {
-		out.close();
-		} catch (IOException e) {
-		e.printStackTrace();
-		}
-		}
-		}
+
     /**
      * To solve user input
      *

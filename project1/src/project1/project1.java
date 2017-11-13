@@ -143,15 +143,14 @@ public class project1 extends JFrame {
 		fr.setTitle("project1");
 		fr.setVisible(true);
 		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		initData();
+		run();
+		clear();
+		transtograph();
+		showgraph();
 		butn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				str = txtName0.getText();
-				initData();
-				run(str);
-				clear();
-				transtograph();
-				showgraph();
+				
 			}
 	    });
 		//显示图片的按钮
@@ -439,9 +438,9 @@ public class project1 extends JFrame {
 	}
 	
 	
-	public void run(String str) {
+	public void run() {
 		int len = 0;
-		File file = new File(str);
+		File file = new File("C:/Users/Administrator/Desktop/graph.txt");
 		System.out.println(str);//C:\Users\Administrator\Desktop\graph.txt
 		try {
 			FileInputStream is = new FileInputStream(file);
@@ -729,6 +728,7 @@ public class project1 extends JFrame {
 	public static void main(String[] args) {
 		
 		project1 program =new project1();
+		
 		
 	    //program.init();//执行初始化
 	}
